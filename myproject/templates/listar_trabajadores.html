@@ -1,0 +1,46 @@
+<!-- listar_trabajadores.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Listado de Trabajadores</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>RUT</th>
+            <th>Nombre</th>
+            <th>Sexo</th>
+            <th>Cargo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trabajador in trabajadores %}
+        <tr>
+            <td>{{ trabajador.rut }}</td>
+            <td>{{ trabajador.nombre }}</td>
+            <td>{{ trabajador.sexo }}</td>
+            <td>{{ trabajador.cargo }}</td>
+            <td>
+                <a href="{% url 'editar_contacto_emergencia' trabajador.pk %}" class="btn btn-warning">
+                    Editar Contacto de Emergencia
+                </a>
+        
+                <a href="{% url 'editar_carga_familiar' trabajador.pk %}" class="btn btn-warning">
+                    Editar Carga Familiar
+                </a>
+        
+                <a href="{% url 'editar_trabajador' trabajador.pk %}" class="btn btn-primary">
+                    Editar Trabajador
+                </a>
+                <a href="{% url 'eliminar_trabajador' trabajador.pk %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este trabajador?');">
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+

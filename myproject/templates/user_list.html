@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+   <h2>Lista de Usuarios</h2>
+   <table class="table">
+       <thead>
+           <tr>
+               <th>Nombre de usuario</th>
+               <th>Rol</th>
+               <th>Acciones</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for user in users %}
+           <tr>
+               <td>{{ user.username }}</td>
+               <td>{{ user.userdetails.rol }}</td>
+               <td>
+                   <a href="{% url 'user_edit' user.id %}" class="btn btn-sm btn-primary">Editar</a>
+                   <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ user.id }}">
+                       Eliminar
+                   </button>
+               </td>
+           </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+</div>
+
+{% for user in users %}
+<!-- Modal para eliminar usuario -->
+<div class="modal fade" id="deleteModal{{ user.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ user.id }}" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="deleteModalLabel{{ user.id }}">Confirmar eliminación</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               ¿Está seguro que desea eliminar al usuario {{ user.username }}?
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+               <button type="button" class="btn btn-danger" onclick="deleteUser({{ user.id }})">Sí</button>
+           </div>
+       </div>
+   </div>
+</div>
+{% endfor %}
+
+<script>
+function deleteUser(userId) {
+   fetch(`/user/${userId}/delete/`, {
+       method: 'POST',
+       headers: {
+           'X-CSRFToken': '{{ csrf_token }}',
+       },
+   }).then(response => {
+       if (response.ok) {
+           window.location.reload();
+       } else {
+           alert('Error al eliminar el usuario');
+       }
+   });
+}
+</script>
+{% endblock %}

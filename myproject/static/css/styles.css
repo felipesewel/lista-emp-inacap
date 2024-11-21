@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f2f5f7, #6b8d9d);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Alinea verticalmente las etiquetas y campos */
+    margin-bottom: 15px; /* Espaciado entre filas */
+}
+
+.form-group label {
+    flex: 1; /* La etiqueta ocupa un espacio proporcional */
+    text-align: right; /* Alinea la etiqueta a la derecha */
+    margin-right: 10px; /* Espaciado entre la etiqueta y el campo */
+    font-weight: bold; /* Opcional: destaca las etiquetas */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    flex: 2; /* El campo ocupa más espacio proporcional */
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button, input[type="submit"] {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #5a9bd6;
+}
+
+table {
+    width: 90%; /* Ajusta al tamaño deseado */
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 1em;
+}
+
+th {
+    background-color: #4682B4;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+button.yellow {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.blue {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.red {
+    background-color: #DC143C;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #4682B4;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #4682B4;
+    color: white;
+}
+
+input[type="radio"] {
+    margin: 0 5px;
+}
+
+.logo {
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #4682B4;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3%;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}

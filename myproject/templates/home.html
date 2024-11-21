@@ -1,0 +1,18 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="center-content">
+  <img src="{% static 'images/logo.png' %}" alt="Logo de la empresa" class="logo">
+
+ <h2>Bienvenido, {{ nombre_empleado }}!</h2>
+ <p>Tu rol es: {{ cargo }}</p>
+ <div>
+  <a href="{% url 'user_edit' %}" class="btn btn-primary">Editar perfil</a>
+  <a href="{% url 'logout' %}" class="btn btn-secondary">Cerrar sesión</a>
+  {% if user.userdetails.rol == 'admin' %}
+     <a href="{% url 'user_list' %}" class="btn btn-info">Lista de usuarios</a>
+  {% endif %}
+ </div>
+</div>
+{% endblock %}

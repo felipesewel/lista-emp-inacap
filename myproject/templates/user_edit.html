@@ -1,0 +1,33 @@
+<!-- user_edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Perfil</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ trabajador_form.as_p }}
+
+    <h3>Contacto de Emergencia</h3>
+    {{ contacto_form.as_p }}
+
+    <h3>Carga Familiar</h3>
+    {{ carga_familiar_form.as_p }}
+
+    <h3>Cambiar Contraseña</h3>
+    <div>
+        <label for="id_old_password">Contraseña actual:</label>
+        {{ password_form.old_password }}
+    </div>
+    <div>
+        <label for="id_new_password1">Nueva contraseña:</label>
+        {{ password_form.new_password1 }}
+    </div>
+    <div>
+        <label for="id_new_password2">Confirmar nueva contraseña:</label>
+        {{ password_form.new_password2 }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+{% endblock %}

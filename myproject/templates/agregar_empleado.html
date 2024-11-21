@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Agregar nuevo empleado</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ trabajador_form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{% url 'listar_empleados' %}" class="btn btn-secondary">Cancelar</a>
+
+</form>
+{% endblock %}

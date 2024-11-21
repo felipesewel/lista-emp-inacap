@@ -1,0 +1,13 @@
+<!-- editar_carga_familiar.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Carga Familiar</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>
+{% endblock %}
+
+
